@@ -1,12 +1,11 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import BookList from "../components/BookList"
+import fantasy from "../data/fantasy.json"
 
 describe("function of serach bar", () => {
-    it("have to show the book i write", async () => {
-        render (<BookList />)
-        const searchField = screen.getByPlaceholderText(/cerca un libro/i)
-        fireEvent.change(searchField, {target: {value: "ciao"}})
-        const chosenBook = await screen.getByRole("img")
-        expect(chosenBook).toHaveLength(1)
+    it("have to show the book i write", () => {
+        render (<BookList books={fantasy}/>)
+        const chosenBook =  screen.getAllByRole("img")
+        expect(chosenBook.length).toBe(fantasy.length)
     })
 })

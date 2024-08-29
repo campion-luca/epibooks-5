@@ -9,6 +9,7 @@ describe ("If Welcome mount correct", () => {
         expect(h1Welcome).toBeInTheDocument()
     })
 
+// giusto per sfizio personale
     it("should show this words", () => {
         render(<Welcome />)
         const textWelcome = screen.getByText(/Benvenuti in EpiBooks!/i)
